@@ -1,0 +1,4 @@
+python training-real.py btcla.csv 20-10 1 2 0.01
+python training-real.py btcla.csv 20 1 1 0.01
+params :
+urlFile Neuron idModel layer learning_rate
