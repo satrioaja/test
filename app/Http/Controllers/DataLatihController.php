@@ -3,32 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataLatih;
+use App\Models\Pelatihan;
 use Illuminate\Http\Request;
 use App\Imports\DataLatihImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DataLatihController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data_latih = DataLatih::all();
+        $pelatihan = Pelatihan::all();
 
-        return view('data-latih.index', compact('data_latih'));
-    }
+        $filter = $request->filter;
 
-    public function import()
-    {
-        return view('data-latih.import');
-    }
+        if (!$filter && $pelatihan->count()) {
+            $filter = $pelatihan->last()->id;
+        }
 
-    public function import_post(Request $request)
-    {
-        $file = $request->file('file');
+        $data_latih = DataLatih::when($filter, function ($query) use ($filter) {
+            $query->where('pelatihan_id', $filter);
+        })->get();
 
-        DataLatih::truncate();
-        
-        Excel::import(new DataLatihImport, $file);
-
-        return redirect('/data-latih');
+        return view('data-latih.index', compact('data_latih', 'pelatihan', 'filter'));
     }
 }

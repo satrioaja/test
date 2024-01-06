@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataLatih extends Model
+class DataUji extends Model
 {
     use HasFactory;
 
@@ -19,11 +19,6 @@ class DataLatih extends Model
         'close',
         'volume',
         'market_cap',
-        'pelatihan_id'
+        'pengujian_id'
     ];
-
-    public function pelatihan()
-    {
-        return $this->belongsTo(Pelatihan::class);
-    }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LSTM</title>
+    <title>Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -87,19 +87,25 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- Data Latih Page --}}
+                        <li class="nav-item">
+                            <a href="{{ route('pelatihan.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-shapes"></i>
+                                <p>
+                                    Pelatihan
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('data-latih.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-cog"></i>
                                 <p>
                                     Data Latih
                                 </p>
                             </a>
                         </li>
-                        {{-- Logout --}}
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>
                                     Logout
                                 </p>
@@ -133,6 +139,13 @@
 
             <!-- Main content -->
             <section class="content">
+
+
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
                 <!-- Default box -->
                 <div class="card">

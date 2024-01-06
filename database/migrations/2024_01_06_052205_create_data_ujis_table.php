@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_latihs', function (Blueprint $table) {
+        Schema::create('data_ujis', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->double('open');
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('close');
             $table->double('volume');
             $table->double('market_cap');
+            $table->foreignId('pengujian_id')->constrained('pengujians');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_latihs');
+        Schema::dropIfExists('data_ujis');
     }
 };

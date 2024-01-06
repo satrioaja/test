@@ -3,10 +3,15 @@
 @section('title', 'Data Latih')
 
 @section('content')
-    {{-- add & import button --}}
     <div class="row mb-2">
         <div class="col-sm-12">
-            <a href="{{ route('data-latih.import') }}" class="btn btn-primary">Import Data Latih</a>
+            <select name="filter" id="filter" class="form-control">
+                @foreach ($pelatihan as $item)
+                    <option value="{{ $item->id }}" {{ $item->id == $filter ? 'selected' : '' }}>
+                        {{ $item->nama }}
+                    </option>
+                @endforeach
+            </select>
         </div>
     </div>
     <table id="example1" class="table table-bordered table-striped">
@@ -48,6 +53,10 @@
                 "lengthChange": false,
                 "autoWidth": false,
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+            $('#filter').on('change', function() {
+                window.location.href = "{{ route('data-latih.index') }}?filter=" + $(this).val();
+            });
         });
 
     </script>
