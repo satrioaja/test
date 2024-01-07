@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengujian/create', [App\Http\Controllers\PengujianController::class, 'create'])->name('pengujian.create');
     Route::post('/pengujian/store', [App\Http\Controllers\PengujianController::class, 'store'])->name('pengujian.store');
     Route::delete('/pengujian/destroy/{id}', [App\Http\Controllers\PengujianController::class, 'destroy'])->name('pengujian.destroy');
+    Route::get('/pengujian/chart/{id}', [App\Http\Controllers\PengujianController::class, 'chart'])->name('pengujian.chart');
 
     Route::get('/data-uji', [App\Http\Controllers\DataUjiController::class, 'index'])->name('data-uji.index');
 

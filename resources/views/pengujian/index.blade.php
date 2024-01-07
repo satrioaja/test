@@ -36,6 +36,8 @@
                         <form action="{{ route('pengujian.destroy', $item->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
+                            <a class="btn-sm btn btn-primary"
+                                href="{{ route('pengujian.chart', $item->id) }}"><i class="fas fa-eye"></i></a>
                             <button class="btn btn-sm btn-danger b"
                                 onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                 <i class="fas fa-trash"></i>
