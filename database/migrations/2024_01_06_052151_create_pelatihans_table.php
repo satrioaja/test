@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('file_data_latih');
             $table->string('file_model');
+            $table->string('neuron');
+            $table->string('layer');
+            $table->string('learning_rate');
             $table->timestamps();
         });
     }

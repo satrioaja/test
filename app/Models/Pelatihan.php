@@ -13,6 +13,9 @@ class Pelatihan extends Model
         'nama',
         'file_data_latih',
         'file_model',
+        'neuron',
+        'layer',
+        'learning_rate',
     ];
 
     public function dataLatih()

@@ -61,13 +61,14 @@ def train(urlFile,neuron,id,layer,learning_rate):
       model.add(LSTM(neuron1, input_shape=(train_X.shape[1], train_X.shape[2]),return_sequences=True))
       model.add(LSTM(neuron2))
     else:
+      neuron = int(neuron)
       model.add(LSTM(neuron, input_shape=(train_X.shape[1], train_X.shape[2])))
     model.add(Dense(1))
     optimizer = Adam(learning_rate=learning_rate)
     model.compile(loss='mse', optimizer=optimizer)
     model.fit(train_X, train_y, epochs=100, batch_size=72, verbose=0, shuffle=False)
-    model.save('model-'+ id +'.h5')
-    print('|model-'+ id +'.h5')
+    model.save('storage/model/model-'+ id +'.h5')
+    print('model-'+ id +'.h5')
   except Exception as e:
     print(e)
     print('Training Failed')

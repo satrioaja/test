@@ -19,6 +19,9 @@
                 <th>Nama</th>
                 <th>File Data Latih</th>
                 <th>File Model</th>
+                <th>Neuron</th>
+                <th>Layer</th>
+                <th>Learning Rate</th>
                 <th>#</th>
             </tr>
         </thead>
@@ -30,6 +33,9 @@
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->file_data_latih }}</td>
                     <td>{{ $item->file_model }}</td>
+                    <td>{{ $item->neuron }}</td>
+                    <td>{{ $item->layer }}</td>
+                    <td>{{ $item->learning_rate }}</td>
                     <td>
                         <form action="{{ route('pelatihan.destroy', $item->id) }}" method="POST" class="d-inline">
                             @csrf

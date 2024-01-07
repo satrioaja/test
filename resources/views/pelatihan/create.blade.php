@@ -18,6 +18,18 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <label>Neuron</label>
+            <input type="text" class="form-control" name="neuron">
+        </div>
+        <div class="form-group">
+            <label>Layer</label>
+            <input type="text" class="form-control" name="layer">
+        </div>
+        <div class="form-group">
+            <label>Learning Rate</label>
+            <input type="text" class="form-control" name="learning_rate">
+        </div>
         {{-- onclick disabled --}}
         <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">
             <i class="fas fa-save"></i>
