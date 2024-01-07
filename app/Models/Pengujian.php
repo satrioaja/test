@@ -15,4 +15,14 @@ class Pengujian extends Model
         'file_data_uji',
         'file_hasil',
     ];
+
+    public function pelatihan()
+    {
+        return $this->belongsTo(Pelatihan::class);
+    }
+
+    public function dataUji()
+    {
+        return $this->hasMany(DataUji::class);
+    }
 }

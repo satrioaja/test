@@ -104,6 +104,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('pengujian.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-shapes"></i>
+                                <p>
+                                    Pengujian
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('data-uji.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Data Uji
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>

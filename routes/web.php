@@ -26,5 +26,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/data-latih', [App\Http\Controllers\DataLatihController::class, 'index'])->name('data-latih.index');
 
+    Route::get('/pengujian', [App\Http\Controllers\PengujianController::class, 'index'])->name('pengujian.index');
+    Route::get('/pengujian/create', [App\Http\Controllers\PengujianController::class, 'create'])->name('pengujian.create');
+    Route::post('/pengujian/store', [App\Http\Controllers\PengujianController::class, 'store'])->name('pengujian.store');
+    Route::delete('/pengujian/destroy/{id}', [App\Http\Controllers\PengujianController::class, 'destroy'])->name('pengujian.destroy');
+
+    Route::get('/data-uji', [App\Http\Controllers\DataUjiController::class, 'index'])->name('data-uji.index');
+
     Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 });

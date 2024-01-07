@@ -30,7 +30,6 @@
             <label>Learning Rate</label>
             <input type="text" class="form-control" name="learning_rate">
         </div>
-        {{-- onclick disabled --}}
         <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">
             <i class="fas fa-save"></i>
             Submit
