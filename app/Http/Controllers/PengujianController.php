@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelatihan;
 use App\Models\Pengujian;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Imports\DataUjiImport;
 use Illuminate\Support\Facades\File;
@@ -59,7 +60,7 @@ class PengujianController extends Controller
 
         exec($command, $output);
 
-        $json_name = $output[1];
+        $json_name = Arr::last($output);
 
         File::move(public_path($json_name), public_path('storage/result/' . $json_name));
 
