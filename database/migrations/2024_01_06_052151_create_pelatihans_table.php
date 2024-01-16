@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('neuron');
             $table->string('layer');
             $table->string('learning_rate');
+            $table->string('epoch');
+            $table->string('batch_size');
             $table->timestamps();
         });
     }

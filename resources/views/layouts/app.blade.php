@@ -163,6 +163,8 @@
                     </div>
                 @endif
 
+                @yield('box')
+
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-header">

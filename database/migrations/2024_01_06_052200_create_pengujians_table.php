@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('pelatihan_id')->constrained('pelatihans');
             $table->string('file_data_uji');
             $table->string('file_hasil');
+            $table->string('rmse');
             $table->timestamps();
         });
     }

@@ -48,7 +48,8 @@ def testing(urlModel,urlFile,id):
   nameResult = 'result-'+ id +'.json'
   with open(nameResult, 'w') as json_file:
     json.dump(data, json_file)
-  print(nameResult)
+  rmse = sqrt(mean_squared_error(inv_test_y, inv_yhat))
+  print(nameResult + '~' + str(rmse))
   # pyplot.plot(inv_test_y, label="original")
   # pyplot.plot(inv_yhat, label="predict")
   # pyplot.legend(loc="best")

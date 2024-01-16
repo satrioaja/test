@@ -48,6 +48,7 @@ class PengujianController extends Controller
             'pelatihan_id' => $request->pelatihan_id,
             'file_data_uji' => $nama_file,
             'file_hasil' => 'fill after testing',
+            'rmse' => 'fill after testing',
         ]);
 
         $pelatihan = Pelatihan::find($request->pelatihan_id);
@@ -62,10 +63,16 @@ class PengujianController extends Controller
 
         $json_name = Arr::last($output);
 
-        File::move(public_path($json_name), public_path('storage/result/' . $json_name));
+        $split = explode('~', $json_name);
+
+        $result = $split[0];
+        $mse = $split[1];
+
+        File::move(public_path($result), public_path('storage/result/' . $result));
 
         $pengujian->update([
-            'file_hasil' => $json_name,
+            'file_hasil' => $result,
+            'rmse' => $mse,
         ]);
 
         return redirect()->route('pengujian.index')->with('success', 'Pengujian berhasil dilakukan');

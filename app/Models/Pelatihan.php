@@ -16,6 +16,8 @@ class Pelatihan extends Model
         'neuron',
         'layer',
         'learning_rate',
+        'epoch',
+        'batch_size',
     ];
 
     public function dataLatih()

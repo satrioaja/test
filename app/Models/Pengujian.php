@@ -14,6 +14,7 @@ class Pengujian extends Model
         'pelatihan_id',
         'file_data_uji',
         'file_hasil',
+        'rmse',
     ];
 
     public function pelatihan()

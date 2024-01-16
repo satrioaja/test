@@ -35,6 +35,8 @@ class PelatihanController extends Controller
             'neuron' => 'required',
             'layer' => 'required',
             'learning_rate' => 'required',
+            'epoch' => 'required',
+            'batch_size' => 'required',
         ]);
 
         $file = $request->file('file');
@@ -48,11 +50,13 @@ class PelatihanController extends Controller
             'neuron' => $request->neuron,
             'layer' => $request->layer,
             'learning_rate' => $request->learning_rate,
+            'epoch' => $request->epoch,
+            'batch_size' => $request->batch_size,
         ]);
 
         Excel::import(new DataLatihImport, $file);
 
-        $command = "python3 " . base_path() . "/public/python/training-real.py " . Storage::path('public/data_latih/' . $nama_file) . " " . $request->neuron . " " . $pelatihan->id . " " . $request->layer . " " . $request->learning_rate;
+        $command = "python3 " . base_path() . "/public/python/training-real.py " . Storage::path('public/data_latih/' . $nama_file) . " " . $request->neuron . " " . $pelatihan->id . " " . $request->layer . " " . $request->learning_rate . " " . $request->epoch . " " . $request->batch_size;
 
         $output = "";
 

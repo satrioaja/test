@@ -40,7 +40,7 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
         agg.dropna(inplace=True)
     return agg
 
-def train(urlFile,neuron,id,layer,learning_rate):
+def train(urlFile,neuron,id,layer,learning_rate,epoch,batch_size):
   try:
     column_data_types = {'Column1': float, 'Column2': float, 'Column3': float, 'Column4': float, 'Column5': float, 'Column6': float, 'Column7':float}
     dataset = read_csv(urlFile, header=0, on_bad_lines='skip',sep=';', dtype=column_data_types)
@@ -66,7 +66,7 @@ def train(urlFile,neuron,id,layer,learning_rate):
     model.add(Dense(1))
     optimizer = Adam(learning_rate=learning_rate)
     model.compile(loss='mse', optimizer=optimizer)
-    model.fit(train_X, train_y, epochs=100, batch_size=72, verbose=0, shuffle=False)
+    model.fit(train_X, train_y, epochs=epoch, batch_size=batch_size, verbose=0, shuffle=False)
     model.save('storage/model/model-'+ id +'.h5')
     print('model-'+ id +'.h5')
   except Exception as e:
@@ -79,4 +79,6 @@ if __name__ == '__main__':
   idModel = sys.argv[3]
   layer = int(sys.argv[4])
   learning_rate = float(sys.argv[5])
-  train(urlFile,neuron,idModel,layer,learning_rate)
+  epoch = int(sys.argv[6])
+  batch_size = int(sys.argv[7])
+  train(urlFile,neuron,idModel,layer,learning_rate,epoch,batch_size)

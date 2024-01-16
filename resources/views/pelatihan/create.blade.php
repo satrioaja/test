@@ -30,6 +30,14 @@
             <label>Learning Rate</label>
             <input type="text" class="form-control" name="learning_rate">
         </div>
+        <div class="form-group">
+            <label>Epoch</label>
+            <input type="text" class="form-control" name="epoch">
+        </div>
+        <div class="form-group">
+            <label>Batch Size</label>
+            <input type="text" class="form-control" name="batch_size">
+        </div>
         <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.form.submit();">
             <i class="fas fa-save"></i>
             Submit

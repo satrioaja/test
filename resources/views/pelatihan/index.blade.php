@@ -22,6 +22,8 @@
                 <th>Neuron</th>
                 <th>Layer</th>
                 <th>Learning Rate</th>
+                <th>Epoch</th>
+                <th>Batch Size</th>
                 <th>#</th>
             </tr>
         </thead>
@@ -36,6 +38,8 @@
                     <td>{{ $item->neuron }}</td>
                     <td>{{ $item->layer }}</td>
                     <td>{{ $item->learning_rate }}</td>
+                    <td>{{ $item->epoch }}</td>
+                    <td>{{ $item->batch_size }}</td>
                     <td>
                         <form action="{{ route('pelatihan.destroy', $item->id) }}" method="POST" class="d-inline">
                             @csrf

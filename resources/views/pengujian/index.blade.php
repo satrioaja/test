@@ -20,6 +20,7 @@
                 <th>Model</th>
                 <th>File Data Uji</th>
                 <th>File Hasil</th>
+                <th>RMSE</th>
                 <th>#</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                     <td>{{ $item->pelatihan->file_model }}</td>
                     <td>{{ $item->file_data_uji }}</td>
                     <td>{{ $item->file_hasil }}</td>
+                    <td>{{ $item->rmse }}</td>
                     <td>
                         <form action="{{ route('pengujian.destroy', $item->id) }}" method="POST" class="d-inline">
                             @csrf
