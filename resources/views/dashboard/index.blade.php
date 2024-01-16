@@ -71,8 +71,10 @@
 @section('content')
 <div class="row mb-2">
   <div class="col-sm-12">
+      @if($pengujian)
       <h3 class="text-center">{{ $pengujian->nama }}</h3>
       <canvas id="myChart" style="width:100%"></canvas>
+      @endif
   </div>
 </div>
 @endsection

@@ -19,13 +19,16 @@ class DashboardController extends Controller
         $data_uji = DataUji::all()->count();
 
         $pengujian = Pengujian::orderBy('id', 'desc')->first();
-        $file_hasil = Storage::get('public/result/' . $pengujian->file_hasil);
-        $json = json_decode($file_hasil, true);
         $hasil_prediksi = [];
         $target = [];
-        foreach ($json as $key => $value) {
-            $hasil_prediksi[] = $value[0];
-            $target[] = $value[1];
+        if ($pengujian) {
+            $file_hasil = Storage::get('public/result/' . $pengujian->file_hasil);
+            $json = json_decode($file_hasil, true);
+
+            foreach ($json as $key => $value) {
+                $hasil_prediksi[] = $value[0];
+                $target[] = $value[1];
+            }
         }
 
         return view('dashboard.index', compact('data_pelatihan', 'data_latih', 'data_pengujian', 'data_uji', 'pengujian', 'hasil_prediksi', 'target'));
